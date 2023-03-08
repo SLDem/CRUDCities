@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{% url 'index' %}"><button class="dark-button login-button">Back to main page.</button></a>
+<br>
+<br>
+List of cities, their mayors and streets:
+
+{% for city in cities %}
+    <ul>
+        <li>Name: {{ city.name }}</li>
+        <li>Mayor: {{ city.mayor }}</li>
+        <li>Streets:
+
+        {% for street in city.street_set.all %}
+            <ul>
+                {{ street.name }}
+                <a href="{% url 'delete_street' pk=street.pk %}"><button class="dark-button login-button">Delete street</button></a>
+                <a href="{% url 'edit_street' pk=street.pk %}"><button class="dark-button login-button">Edit street</button></a>
+            </ul>
+        {% endfor %}
+        <a href="{% url 'new_street' pk=city.pk %}"><button class="dark-button login-button">Add a street to this city</button></a>
+        <a href="{% url 'delete_city' pk=city.pk %}"><button class="dark-button login-button">Delete city</button></a>
+        <a href="{% url 'edit_city' pk=city.pk %}"><button class="dark-button login-button">Edit city information</button></a>
+        </li>
+
+    </ul>
+    <p>--------------------------------------------</p>
+{% endfor %}
+Add a new city: <a href="{% url 'create_city' %}"><button class="dark-button login-button">+</button></a>
+{% endblock %}

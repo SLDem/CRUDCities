@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{% url 'index' %}"><button class="dark-button login-button">Back to main page.</button></a>
+<br>
+<br>
+List of mayors and their cities:
+{% for mayor in mayors %}
+    <p>Name: {{ mayor.first_name }} {{ mayor.last_name }}:</p>
+    <p>Mayor of city:
+        {% if mayor.city %}
+            {{ mayor.city }}
+        {% else %}
+            not a mayor of a city yet
+        {% endif %}
+    <br>
+    <a href="{% url 'delete_mayor' mayor.pk %}"><button class="dark-button login-button">Delete Mayor</button></a>
+    <a href="{% url 'edit_mayor' mayor.pk %}"><button class="dark-button login-button">Edit Mayor</button></a>
+
+<p>---------------------------------------</p>
+{% endfor %}
+Add a new mayor: <a href="{% url 'create_mayor' %}"><button class="dark-button login-button">+</button></a>
+{% endblock %}

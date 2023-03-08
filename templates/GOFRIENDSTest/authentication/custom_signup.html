@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main-form login-signup-wrap">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="dark-button" type="submit">Register</button>
+    </form>
+    <br>
+
+    <p>Already have an account?</p>
+    <a href="{% url 'login' %}"><button class="dark-button login-button">Login</button></a>
+</div>
+{% endblock %}

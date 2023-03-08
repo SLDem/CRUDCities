@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{% url 'index' %}"><button class="dark-button login-button">Back to main page.</button></a>
+
+<form method="post">{% csrf_token %}
+    <p>First name: {{ form.first_name }}</p>
+    <p>Last name: {{ form.last_name }}</p>
+    <p>Date of birth: {{ form.date_of_birth }} [yyyy-mm-dd]</p>
+    <input type="submit" value="Save">
+</form>
+{% endblock %}

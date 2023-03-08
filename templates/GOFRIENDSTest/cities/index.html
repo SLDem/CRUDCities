@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+This is a main page.
+<br>
+<a href="{% url 'logout' %}"><button class="dark-button login-button">Logout</button></a>
+<a href="{% url 'cities' %}"><button class="dark-button login-button">Cities</button></a>
+<a href="{% url 'mayors' %}"><button class="dark-button login-button">Mayors</button></a>
+{% endblock %}
