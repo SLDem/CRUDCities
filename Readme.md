@@ -1,4 +1,4 @@
-A test task containing a CRUD program with authentication system and models for creating/deleting/editing cities.
+The idea is a CRUD program with authentication system and models for creating/deleting/editing cities.
 
 1. Run `pip install -r requirements.txt`
 
